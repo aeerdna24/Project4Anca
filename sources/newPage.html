@@ -20,8 +20,8 @@
 
     <script src="../js/jquery-2.2.0.js"></script>
     <script src="../js/metro.js"></script>
-	<script src="../js/htmlInclude.js"></script>
- 
+    <!-- <script src="../js/prettify/run_prettify.js"></script> -->
+  <!--   <script src="../js/ga.js"></script> -->
     <style>
         .login-form {
             width: 25rem;
@@ -77,6 +77,49 @@
 	
 </head>
 <body class="bg-darkTeal">
+ <div class="grid responsive">
+                <div class="row cells4">
+
+                    <div class="cell">
+                        <ul class="sidebar no-responsive-future darcula" id="sidebar-2">
+                            <li><a href="#">
+                                <span class="mif-apps icon"></span>
+                                <span class="title">Action Plans</span>
+                                <span class="counter">0</span>
+                            </a></li>
+                            <li><a href="#">
+                                <span class="mif-vpn-publ icon"></span>
+                                <span class="title">Statistics</span>
+                                <span class="counter">0</span>
+                            </a></li>
+                            <li><a href="#">
+                                <span class="mif-cogs icon"></span>
+                                <span class="title">Settings</span>
+                                <span class="counter">0</span>
+                            </a></li>
+                            <li><a href="#">
+                                <span class="mif-apps icon"></span>
+                                <span class="title">all items</span>
+                                <span class="counter">0</span>
+                            </a></li>
+                          
+                        </ul>
+                        <script>
+                            $(function(){
+                                setInterval(function(){
+                                    $("#sidebar-2").hover( function(){
+									$(this).toggleClass('compact');
+									});
+								});
+
+                            });
+                        </script>
+                    </div>
+
+
+                </div>
+            </div>
+
     <div id="mainContent"></div> 
 </body>
 </html>
