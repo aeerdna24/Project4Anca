@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Metro, a sleek, intuitive, and powerful framework for faster and easier web development for Windows Metro Style.">
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, metro, front-end, frontend, web development">
+    <meta name="author" content="Sergey Pimenov and Metro UI CSS contributors">
+
+    <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
+
+    <title>Personal planner</title>
+
+    <link href="../css/metro.css" rel="stylesheet">
+    <link href="../css/metro-icons.css" rel="stylesheet">
+    <link href="../css/metro-responsive.css" rel="stylesheet">
+	<link href="../css/metro-schemes.css" rel="stylesheet">
+
+    <script src="../js/jquery-2.2.0.js"></script>
+    <script src="../js/metro.js"></script>
+	<script src="../js/htmlInclude.js"></script>
+ 
+    <style>
+        .login-form {
+            width: 25rem;
+            height: 18.75rem;
+            position: fixed;
+            top: 50%;
+            margin-top: -9.375rem;
+            left: 50%;
+            margin-left: -12.5rem;
+            background-color: #ffffff;
+            opacity: 0;
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+        }
+    </style>
+
+    <script>
+
+        /*
+        * Do not use this is a google analytics fro Metro UI CSS
+        * */
+        if (window.location.hostname !== 'localhost') {
+
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-58849249-3', 'auto');
+            ga('send', 'pageview');
+
+        }
+
+
+        $(function(){
+            var form = $(".login-form");
+
+            form.css({
+                opacity: 1,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+        });
+    </script>
+<style>
+.tile{
+background-color: #F58CA4;
+}
+.tile-large{
+background-color: #ffff66;
+}
+.container{
+margin-top: 50px;
+margin-left: 50px;
+}
+hr{
+background-color:#F58CA4;
+}
+</style>	
+</head>
+<body class="bg-darkTeal">
+	<div class="app-bar">
+		<a class="app-bar-element" id="notify_btn_2" ><span class="mif-earth mif-2x"></span></a>
+		<span class="app-bar-divider"></span>
+		<ul class="app-bar-menu">
+			<li><a href="newPage.html">Home</a></li>
+			<li>
+				<a href="" class="dropdown-toggle">Statistics</a>
+				<ul class="d-menu" data-role="dropdown">
+					<li><a href="">Option 1</a></li>
+					<li class="divider"></li>
+					<li><a href="" class="dropdown-toggle">Option 2</a>
+						<ul class="d-menu" data-role="dropdown">
+							<li><a href="">Option 2.1</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a href="">Action Plans</a></li>
+			<li><a href="">Help</a></li>
+		</ul>
+	</div>
+<script>
+	$(function(){
+		$('#notify_btn_2').on('click', function(){
+			
+			setTimeout(function(){
+				$.Notify({type: 'Today', caption: 'Info', content: "Mom's Birthday", keepOpen: true});
+			}, 4000);
+			setTimeout(function(){
+				$.Notify({caption: 'Upcoming', content: "Concert Metallica", keepOpen: true});
+			}, 5000);
+		});
+	});
+</script>
+	<div class="grid">
+		<div class="container">
+		 <div class="example" style="background-color:#AF8AA6;" data-text="">
+            <h5>Plan 1</h5>
+            <div class="stepper" data-role="stepper" data-on-step-click="stepper_step_click" ></div>
+            <h5>Plan 2</h5>
+            <div class="stepper" data-role="stepper" data-type="diamond" data-steps="5" data-start="2" onclick="showDialog('#dialog1')"></div>
+            <h5>Plan 3</h5>
+            <div class="stepper" data-role="stepper" data-type="cycle" data-steps="5" id="stepper2" data-on-step="stepper_on_step" data-on-step-click="stepper_step_click"></div>
+        </div>
+
+
+		</div>
+	</div>
+	<br>
+	<div data-role="dialog" id="dialog1" data-close-button="true"style="padding:10px; ">
+		<div class="heading">
+							<span class="title">Mom's birthday</span>
+							<span class="mif-pencil"></span>
+						</div>
+						<div class ="content padding10">
+							<div style="margin-left:10px;">
+								<div class="input-control text" data-role="datepicker" data-preset="2015-05-01">
+									<input type="text">
+									<button class="button"><span class="mif-calendar"></span></button>
+								</div>
+								<hr>
+								<span>Location: at home, with all the loving family!!</span>
+								<hr>
+								<span><i class="mif-tags"></i> &nbsp; <a>#birthday</a> &nbsp; <a>#love</a> &nbsp; <a>#mom</a></span>
+							</div>
+							</div>
+	</div>
+	<div data-role="dialog" id="dialog2" data-close-button="true"style="padding:10px; ">
+									<div class="heading">
+							<span class="title">Concert Metallica</span>
+							<span class="mif-pencil"></span>
+						</div>
+						<div class ="content padding10">
+							<div style="margin-left:10px;">
+								<span class="mif-calendar" id="calend-edit" data-role="datepicker">  &nbsp; 14.04.2016</span>
+								<hr>
+								Nothing else matters
+								<hr>
+								<span><i class="mif-tags"></i> <a>#yaay</a> <a>#funn</a> </span>
+							</div>
+						</div>
+	</div>
+	<div data-role="dialog" id="dialog3" data-close-button="true"style="padding:10px; ">
+		<div class="heading">
+							<span class="title">Game of Thrones - new season</span>
+							<span class="mif-pencil"></span>
+						</div>
+						<div class ="content padding10">
+							<div style="margin-left:10px;">
+								<span class="mif-calendar" id="calend-edit" data-role="datepicker">  &nbsp; 14.04.2016</span>
+								<hr>
+								Description: no matter where, grab the popcorn and start watching 
+								<hr>
+								<span><i class="mif-tags"></i> <a>#newseason</a> <a>#lannister</a> <a>#bestshow</a></span>
+							</div>
+						</div>
+	</div>
+	<script>
+	
+                function stepper_step_click(index, step){
+                    showDialog('#dialog'+index);
+                }
+    function showDialog(id){
+        var dialog = $(id).data('dialog');
+        dialog.open();
+    }
+</script>
+</body>
+</html>

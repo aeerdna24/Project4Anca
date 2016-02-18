@@ -85,170 +85,294 @@ background-color:#F58CA4;
 </style>	
 </head>
 <body class="bg-darkTeal">
- <div class="grid responsive">
-                <div class="row cells4">
-
-                    <div class="cell">
-                        <ul class="sidebar no-responsive-future darcula" id="sidebar-2">
-                            <li><a href="#">
-                                <span class="mif-apps icon"></span>
-                                <span class="title">Action Plans</span>
-                                <span class="counter">0</span>
-                            </a></li>
-                            <li><a href="#">
-                                <span class="mif-vpn-publ icon"></span>
-                                <span class="title">Statistics</span>
-                                <span class="counter">0</span>
-                            </a></li>
-                            <li><a href="#">
-                                <span class="mif-cogs icon"></span>
-                                <span class="title">Settings</span>
-                                <span class="counter">0</span>
-                            </a></li>
-                            <li><a href="#">
-                                <span class="mif-apps icon"></span>
-                                <span class="title">all items</span>
-                                <span class="counter">0</span>
-                            </a></li>
-                          
-                        </ul>
-                        <script>
-                            $(function(){
-                                setInterval(function(){
-                                    $("#sidebar-2").hover( function(){
-									$(this).toggleClass('compact');
-									});
-								});
-
-                            });
-                        </script>
-                    </div>
-
-
-                </div>
-            </div>
-<div class="grid">
-	<div class="container">
-		<h2 style="color:white;">Events</h2>
-		</br>
-		<div class="row cells3">
-		<div  class="cell" data-role="draggable">
-			<div class="tile tile-wide" data-role="tile">
-				<div style="margin-left:10px;">
-					Mom's birthday
-					<hr>
-					<span><i class="mif-calendar"></i> &nbsp; 19.02.2016</span>
-					<hr>
-					Location: at home, with all the loving family!!
-					<hr>
-					<hr>
-					<span><i class="mif-tags"></i> &nbsp; <a>#birthday</a> &nbsp; <a>#love</a> &nbsp; <a>#mom</a></span>
+	<div class="app-bar">
+		<a class="app-bar-element" id="notify_btn_2" ><span class="mif-earth mif-2x"></span></a>
+		<span class="app-bar-divider"></span>
+		<ul class="app-bar-menu">
+			<li><a href="">Home</a></li>
+			<li>
+				<a href="action.html" class="dropdown-toggle">Statistics</a>
+				<ul class="d-menu" data-role="dropdown">
+					<li><a href="">Windows 10</a></li>
+					<li><a href="">Spartan</a></li>
+					<li><a href="">Outlook</a></li>
+					<li><a href="">Office 2015</a></li>
+					<li class="divider"></li>
+					<li><a href="" class="dropdown-toggle">Action Plans</a>
+						<ul class="d-menu" data-role="dropdown">
+							<li><a href="">Internet Explorer 10</a></li>
+							<li><a href="">Skype</a></li>
+							<li><a href="">Surface</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a href="action.html">Action Plans</a></li>
+			<li><a href="">Help</a></li>
+		</ul>
+	</div>
+<script>
+	$(function(){
+		$('#notify_btn_2').on('click', function(){
+			
+			setTimeout(function(){
+				$.Notify({type: 'Today', caption: 'Info', content: "Mom's Birthday", keepOpen: true});
+			}, 4000);
+			setTimeout(function(){
+				$.Notify({caption: 'Upcoming', content: "Concert Metallica", keepOpen: true});
+			}, 5000);
+		});
+	});
+</script>
+	<div class="grid">
+		<div class="container">
+			<h2 style="color:white;">Events
+				<span class="mif-plus" onclick="showDialog('#dialog')" style="
+					font-size: large;
+					padding: 6PX;
+					border-radius: 19px;
+					background: #7ad61d;
+					margin-left: 16px;
+				"></span>
+			</h2>
+			</br>
+			<div class="row cells3">
+				<div  class="cell" data-role="draggable">
+					<div class ="panel collapsible" data-role="panel">
+						<div class="heading">
+							<span class="title">Mom's birthday</span>
+							<span class="mif-pencil"></span>
+						</div>
+						<div class ="content padding10">
+							<div style="margin-left:10px;">
+							<span class="mif-calendar" id="calend-edit" data-role="datepicker">  &nbsp; 14.04.2016</span>
+								<!-- <div class="input-control text" data-role="datepicker" data-preset="2015-05-01">
+									<input type="text">
+									<button class="button"><span class="mif-calendar"></span></button>
+								</div> -->
+								<hr>
+								<span>Location: at home, with all the loving family!!</span>
+								<hr>
+								<span><i class="mif-tags"></i> &nbsp; <a>#birthday</a> &nbsp; <a>#love</a> &nbsp; <a>#mom</a></span>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			</div>
-			<div  class="cell" data-role="draggable">
-			<div class="tile tile-wide" data-role="tile">
-				<div style="margin-left:10px;">
-					Game of Thrones - new season
-					<hr>
-					<span><i class="mif-calendar"></i> &nbsp; 14.04.2016</span>
-					<hr>
-					Description: no matter where, grab the popcorn and start watching 
-					<hr>
-					<hr>
-					<span><i class="mif-tags"></i> <a>#newseason</a> <a>#lannister</a> <a>#bestshow</a></span>
+				<div  class="cell" data-role="draggable">
+					<div class ="panel collapsible" data-role="panel">
+						<div class="heading">
+							<span class="title">Game of Thrones - new season</span>
+							<span class="mif-pencil"></span>
+						</div>
+						<div class ="content padding10">
+							<div style="margin-left:10px;">
+								<span class="mif-calendar" id="calend-edit" data-role="datepicker">  &nbsp; 14.04.2016</span>
+								<hr>
+								Description: no matter where, grab the popcorn and start watching 
+								<hr>
+								<span><i class="mif-tags"></i> <a>#newseason</a> <a>#lannister</a> <a>#bestshow</a></span>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			</div>
-			<div  class="cell" data-role="draggable">
-			<div class="tile tile-wide" data-role="tile">
-				<div style="margin-left:10px;">
-					Metallica Concert
-					<hr>
-					<span><i class="mif-calendar"></i> &nbsp; 23.07.2016</span>
-					<hr>
-					Location: Berlin, Germany. Get ready for a road trip. :D
-					<hr>
-					<hr>
-					<span><i class="mif-tags"></i> <a>#rockon</a> <a>#nothingelsematters</a></span>
-				</div>
-			</div>
+				
 			</div>
 		</div>
 	</div>
-</div>
 	<br>
 	<div class="grid">
-	<div class="container">
-		<h2 style="color:white;">Notes</h2>
-		<br>
-		<div class="row cells3">
-			<div class="cell" data-role="draggable">
-				<div class ="panel collapsible" data-role="panel">
-					<div class="heading">
-						<span class="title">Movies</span>
-						
-					</div>
-					<div class ="content padding10">
-						
-							<div style="margin-left:10px;">
+		<div class="container">
+			<h2 style="color:white;">Notes
+			<span class="mif-plus" onclick="showDialog('#dialog')" style="
+					font-size: large;
+					padding: 6PX;
+					border-radius: 19px;
+					background: #7ad61d;
+					margin-left: 16px;
+				"></span></h2>
+			<br>
+			<div class="row cells3">
+				<div class="cell" data-role="draggable">
+					<div class ="panel collapsible" data-role="panel">
+						<div class="heading">
+							<span class="title">Movies</span>
+							<span class="mif-pencil"></span>
+						</div>
+						<div class ="content padding10">
+							<div style="margin-left:10px; padding:5px;">
 								Thoughts of the Day
-								<br>
-								<br>
 								Why is Star Wars sooo good?
-								<br>
-								<br>
 								Should I go and see Deadpool? I've heard that it's good,
 								people urge me to go and see it. I am yet to decide what
 								to do.
-								<br>
-								<br>
 								What should I have for dinner?
-								<br>
-								<br>
-								<br>
-								<br>
-								<br>
-								<br>
-								<br>
-								<span><i class="mif-tags"></i> &nbsp; <a>#random</a> &nbsp; <a>#starwars</a> &nbsp; <a>#movies</a> &nbsp; <a>#food</a>
-								&nbsp; <a>#deadpool</a> &nbsp; <a>#cinema</a> &nbsp; <a>#justwritestuff</a></span>
 							</div>
-						
+							<div style="padding:5px;">
+								<hr>
+								<span><i class="mif-tags"></i> &nbsp; <a>#random</a> &nbsp; <a>#starwars</a> &nbsp; <a>#movies</a> &nbsp; <a>#food</a>
+									&nbsp; <a>#deadpool</a> &nbsp; <a>#cinema</a> &nbsp; <a>#justwritestuff</a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cell" data-role="draggable">
+					<div class ="panel collapsible" data-role="panel">
+						<div class="heading">
+							<span class="title">Miscellaneous</span>
+							<span class="mif-pencil"></span>
+						</div>
+						<div class ="content padding10">
+							<div style="margin-left:10px; padding:5px;">
+								Did you know...
+								
+								... that W. G. Grace, Jack Hobbs, Denis Compton and Don Bradman all scored first-class centuries at the Central Recreation Ground, Hastings?
+								
+								... that the ancient text Nirvana Upanishad is written in Sutra-style and states that a solitary place is a monastery of bliss for a Hindu monk?
+								
+								... that Donald Lavoie, a hit man for Montreal's Dubois Gang, escaped his intended execution at their hands by sliding down a laundry chute?
+								
+							</div>
+							<div style="padding:5px;">
+								<hr>
+								<span><i class="mif-tags"></i> &nbsp; <a>#random</a> &nbsp; <a>#facts</a> &nbsp; <a>#oldies</a> &nbsp; <a>#peoplefacts</a>
+								&nbsp; <a>#justwritestuff</a></span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			
-			<div class="cell" data-role="draggable">
-				<div class ="panel collapsible" data-role="panel">
-					<div class="heading">
-						<span class="title">Movies</span>
-						
+		</div>
+	</div> 
+	<div class = "grid">
+		<div class="container">
+			<h2 style="color:white;">To do 
+			<span class="mif-plus" onclick="showDialog('#dialog')"  style="
+					font-size: large;
+					padding: 6PX;
+					border-radius: 19px;
+					background: #7ad61d;
+					margin-left: 16px;
+				"></span>
+			</h2>
+			<div class="row cells3">
+				<div class="cell" data-role="draggable"> 
+					<div class ="panel collapsible" data-role="panel">
+						<div class="heading">
+							<span class="title">Miscellaneous</span>
+						</div>
+						<div class ="content padding10">
+							<div style="margin-left:10px;">
+								<div class="treeview" data-role="treeview">
+									<ul>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div style="padding:5px;">
+								<hr>
+								<span><i class="mif-tags"></i> &nbsp; <a>#random</a> &nbsp; <a>#facts</a> &nbsp; <a>#oldies</a> &nbsp; <a>#peoplefacts</a>
+								&nbsp; <a>#justwritestuff</a></span>
+							</div>
+						</div>
 					</div>
-							<div class ="content padding10">
-				<div style="margin-left:10px;">
-				<!-- <div class="tile-large"> --> 
-					Did you know...
-					<br>
-					<br>
-					... that W. G. Grace, Jack Hobbs, Denis Compton and Don Bradman all scored first-class centuries at the Central Recreation Ground, Hastings?
-					<br>
-					<br>
-					... that the ancient text Nirvana Upanishad is written in Sutra-style and states that a solitary place is a monastery of bliss for a Hindu monk?
-					<br>
-					<br>
-					... that Donald Lavoie, a hit man for Montreal's Dubois Gang, escaped his intended execution at their hands by sliding down a laundry chute?
-					<br>
-					<br>
-					<span><i class="mif-tags"></i> &nbsp; <a>#random</a> &nbsp; <a>#facts</a> &nbsp; <a>#oldies</a> &nbsp; <a>#peoplefacts</a>
-					&nbsp; <a>#justwritestuff</a></span>
-				<!--  </div>  -->
 				</div>
+				<div class="cell" data-role="draggable"> 
+					<div class ="panel collapsible" data-role="panel">
+						<div class="heading">
+							<span class="title">Miscellaneous</span>
+						</div>
+						<div class ="content padding10">
+							<div style="margin-left:10px;">
+								<div class="treeview" data-role="treeview">
+									<ul>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div style="padding:5px;">
+								<hr>
+								<span><i class="mif-tags"></i> &nbsp; <a>#random</a> &nbsp; <a>#facts</a> &nbsp; <a>#oldies</a> &nbsp; <a>#peoplefacts</a>
+								&nbsp; <a>#justwritestuff</a></span>
+							</div>
+						</div>
+					</div>
 				</div>
+				<div class="cell" data-role="draggable"> 
+					<div class ="panel collapsible" data-role="panel">
+						<div class="heading">
+							<span class="title">Miscellaneous</span>
+						</div>
+						<div class ="content padding10">
+							<div style="margin-left:10px;">
+								<div class="treeview" data-role="treeview">
+									<ul>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+										<li data-mode="checkbox" data-name="checkbox_name" data-checked="false">
+											<span class="leaf">Leaf name</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div style="padding:5px;">
+								<hr>
+								<span><i class="mif-tags"></i> &nbsp; <a>#random</a> &nbsp; <a>#facts</a> &nbsp; <a>#oldies</a> &nbsp; <a>#peoplefacts</a>
+								&nbsp; <a>#justwritestuff</a></span>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+	<div data-role="dialog" id="dialog" data-close-button="true"style="padding:10px; ">
+		<h3>New Item</h3>
+		<div class="input-control text" style="display:block">
+			<input type="text">
+		</div>
+		<div class="input-control text" data-role="datepicker" style="display:block">
+			<input type="text">
+			<button class="button"><span class="mif-calendar"></span></button>
+		</div>
+		<div class="input-control textarea" style="display:block">
+			<textarea></textarea>
+		</div>
+		<a href = "newPage.html" id="saveitem" class="button" style="display:block"><span class=""></span>Save</a>
+	</div>
+	<script>
+    function showDialog(id){
+        var dialog = $(id).data('dialog');
+        dialog.open();
+    }
+</script>
 </body>
 </html>
